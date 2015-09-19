@@ -1,0 +1,4 @@
+# Opcodes for the -Xcam instruction extension
+
+@caml    rd      rs1     imm12   14..12=0x0 6..2=0x02 1..0=3
+@cams    imm12hi rs1 rs2 imm12lo 14..12=0x0 6..2=0x0A 1..0=3
