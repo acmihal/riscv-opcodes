@@ -1,4 +1,15 @@
 # Opcodes for the -Xcam instruction extension
 
-@caml    rd      rs1     imm12   14..12=0x0 6..2=0x02 1..0=3
-@cams    imm12hi rs1 rs2 imm12lo 14..12=0x0 6..2=0x0A 1..0=3
+# Store key-value pairs into the CAM.
+@camsk0  imm12hi rs2 rs1 14..12=0x0 imm12lo 6..2=0x0A 1..0=3
+@camsk1  imm12hi rs2 rs1 14..12=0x1 imm12lo 6..2=0x0A 1..0=3
+@camsv   imm12hi rs2 rs1 14..12=0x2 imm12lo 6..2=0x0A 1..0=3
+
+# Query key-value pairs from the CAM.
+@camlk0  imm12 rs1 14..12=0x0 rd 6..2=0x02 1..0=3
+@camlk1  imm12 rs1 14..12=0x1 rd 6..2=0x02 1..0=3
+@camlv   imm12 rs1 14..12=0x2 rd 6..2=0x02 1..0=3
+
+# Fetch the data associated with a key-value pair.
+@cam     imm12hi rs2 rs1 14..12=0x03 rd 6..2=0x02 1..0=3
+
